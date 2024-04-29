@@ -10,6 +10,7 @@ My project will use the Raspberry Pi as the platform and connects to Firebase. T
 
 - [Mini Thermal Receipt Printers > Making Connections > Raspberry Pi](https://learn.adafruit.com/mini-thermal-receipt-printer/making-connections#to-raspberry-pi-3133486)
   - [Connect and Configure Printer - USB printers: `ls -l /dev/usb/lp0`](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer#:~:text=USB%20printers%20may%20present%20themselves%20to%20the%20system%20differently%20depending%20which%20USB%2Dto%2Dserial%20chip%20they%20use%20internally.)
+- [Interfacing Thermal Printer with Raspberry Pi to Print Text, Images, Barcodes and QR Codes](https://circuitdigest.com/microcontroller-projects/thermal-printer-interfacing-with-raspberry-pi-zero-to-print-text-images-and-bar-codes)
 
 ## Micro Thermal Printer 5~9V Embedded Thermal Receipt Printer Serial Port Microcontroller Secondary Development MCU Printing Module TTL/RS232
 
@@ -35,3 +36,20 @@ Modify: Dec 8 18:26:20
 UID:CBA5A350-16030000-59433331  
 
 QR Code: UID:CBA5A350-16030000-59433331
+
+### Test via USB
+
+`lsusb` - list USB devices: a  utility  for  displaying information about USB
+buses in the system and the devices connected to them. It uses udev's hardware
+database to associate a full human-readable name to the vendor ID and the
+product ID.
+
+
+
+```bash
+
+```
+
+### Test viaTransistor-Transistor Logic (TTL)
+stty -F /dev/serial0 9600
+echo -e "This is a test.\\n\\n\\n" > /dev/serial0
