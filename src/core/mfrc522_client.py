@@ -1,0 +1,1 @@
+from mfrc522 import SimpleMFRC522  # RFID library for the MFRC522 module
