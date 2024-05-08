@@ -53,6 +53,9 @@ A list of resources that I used to help me with this project and to give credit
 - [Django + Firebase](https://forum.djangoproject.com/t/django-firebase/16628/2)
 - [Firebase - Documentation Admin SDK - Python](https://firebase.google.com/docs/admin/setup#python_1)
 - [GitHub: Adafruit_Blinka](https://github.com/adafruit/Adafruit_Blinka)
+- [YouTube: Bytes Of Code - Python - Handle Data in Firestore Database](https://www.youtube.com/watch?v=-jWD-vIyirw&ab_channel=BytesOfCode)
+- [YouTube: Fireship - 100 Firebase Tips, Tricks, and Screw-ups](https://youtu.be/iWEgpdVSZyg?si=XHr4D4m5K5Y9vM57&t=1090)
+- [YouTube: Tech With Tim - Learn Django in 20 Minutes!!](https://www.youtube.com/watch?v=nGIg40xs9e4&ab_channel=TechWithTim)
 
 ## Raspberry Pi Setup & Configuration for Thermal Printer (Maikrt)
 
