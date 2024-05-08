@@ -163,3 +163,4 @@ ect/secret_key.txt
 .vscode/
 config/app_config.py
 src/config/cloud-solution-rfid-18249-firebase-adminsdk-o6tnb-cc828fc033.json
+.venv_python3_11_2/
