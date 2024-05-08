@@ -34,11 +34,14 @@ class CLI_Menu:
                 option_description, getattr(self, method_name))
 
     def _display_menu(self) -> None:
-        print("Welcome to My CLI Menu")
+        print("")
+        print("+==================+")
+        print("| RFID TAG MANAGER |")
+        print("+==================+")
         for key, value in self.menu_options.items():
             print(f"{key}. {value[0]}")
 
-        print("")
+        print("")  # Print an empty line for spacing (better readability)
 
     def _option1(self) -> None:
         print("You chose Option 1")
