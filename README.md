@@ -79,9 +79,9 @@ echo -e "This is a test.\\n\\n\\n" > /dev/serial0
 
 A list of resources that I used to help me with this project and to give credit
 
-- [Connect and Configure Printer - USB printers: `ls -l /dev/usb/lp0`](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer#:~:text=USB%20printers%20may%20present%20themselves%20to%20the%20system%20differently%20depending%20which%20USB%2Dto%2Dserial%20chip%20they%20use%20internally.)
 - [Add the Firebase Admin SDK to your server](https://firebase.google.com/docs/admin/setup)
 - [Automate the boring stuff - CH 18 - SENDING EMAIL AND TEXT MESSAGES](https://automatetheboringstuff.com/2e/chapter18/)
+- [Connect and Configure Printer - USB printers: `ls -l /dev/usb/lp0`](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer#:~:text=USB%20printers%20may%20present%20themselves%20to%20the%20system%20differently%20depending%20which%20USB%2Dto%2Dserial%20chip%20they%20use%20internally.)
 - [Django + Firebase](https://forum.djangoproject.com/t/django-firebase/16628/2)
 - [Firebase - Documentation Admin SDK - Python](https://firebase.google.com/docs/admin/setup#python_1)
 - [GitHub: Adafruit_Blinka](https://github.com/adafruit/Adafruit_Blinka)
@@ -92,6 +92,7 @@ A list of resources that I used to help me with this project and to give credit
 - [YouTube: Bytes Of Code - Python - How To Create Firestore Database](https://www.youtube.com/watch?v=qsFYq_1BQdk&ab_channel=BytesOfCode)
 - [YouTube: Fireship - 100 Firebase Tips, Tricks, and Screw-ups](https://youtu.be/iWEgpdVSZyg?si=XHr4D4m5K5Y9vM57&t=1090)
 - [YouTube: Tech With Tim - Learn Django in 20 Minutes!!](https://www.youtube.com/watch?v=nGIg40xs9e4&ab_channel=TechWithTim)
+- [YouTube: User Authentication for Django with Auth0 - Django Tutorial](https://www.youtube.com/watch?v=heNu2sw9Yf4&ab_channel=SsaliJonathan)
 
 ## Code Ideas and Inspirations
 
