@@ -161,3 +161,4 @@ cython_debug/
 ect/secret_key.txt
 ect/rfid-final-project-firebase-adminsdk-4lfv7-4a26f16eaf.json
 secrets/cloud-solution-rfid-18249-firebase-adminsdk-o6tnb-5776da0779.json
+.dev_venv/
