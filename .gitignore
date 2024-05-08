@@ -164,3 +164,4 @@ secrets/cloud-solution-rfid-18249-firebase-adminsdk-o6tnb-5776da0779.json
 .dev_venv/
 config/cloud-solution-rfid-18249-firebase-adminsdk-o6tnb-cc828fc033.json
 .vscode/
+config/app_config.py
