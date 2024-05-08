@@ -65,6 +65,7 @@ class CLI_Menu:
         return_value: bool = False
         if not self._users_choice_from_input.isdigit():
             print("Invalid input. Please enter a valid number.")
+            self._display_menu()
             return_value: bool = True
 
         return return_value  # True if input is not a digit
@@ -81,6 +82,7 @@ class CLI_Menu:
             print(
                 f"Invalid choice. Please enter a number between 1 and " +
                 str(len(self.menu_options)) + " (inclusive).")
+            self._display_menu()
             return_value: bool = True
 
         return return_value
