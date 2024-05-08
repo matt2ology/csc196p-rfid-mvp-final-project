@@ -60,7 +60,7 @@ class CLI_Menu:
             bool: True if input is not a digit (i.e. not a number)
         """
         return_value: bool = False
-        if not self._users_choice_from_input.isdigit():  # Check if input is a digit
+        if not self._users_choice_from_input.isdigit():
             print("Invalid input. Please enter a valid number.")
             return_value: bool = True
 
