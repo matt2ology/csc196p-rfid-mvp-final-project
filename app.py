@@ -11,7 +11,7 @@ def launch_cli():
     """Import and launch your CLI module
     """
     import src.cli  # Import cli module from src package
-    src.cli.main()  # Call main function in cli module to start the CLI
+    src.cli.CLI_Menu().run()  # Create CLI_Menu instance and call run method
 
 
 def main():
