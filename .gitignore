@@ -164,3 +164,4 @@ ect/secret_key.txt
 config/app_config.py
 .venv_python3_11_2/
 src/config/firebase_private_key.json
+.venv_dev/
