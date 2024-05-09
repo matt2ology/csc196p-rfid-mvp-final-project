@@ -68,6 +68,10 @@ class CLI_Menu:
     def _option3(self) -> None:
         print("You chose Option 3")
 
+    def _exit_program(self) -> None:
+        print("Exiting...")
+        sys.exit(0)
+
     def _is_input_a_non_digit(self) -> bool:
         """Check if the user's input is a non digit
         (e.g. a letter, or a symbol)
