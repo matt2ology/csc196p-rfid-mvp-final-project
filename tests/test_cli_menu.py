@@ -37,6 +37,6 @@ class Test_CLI_Menu:
         Args:
             cli_menu (CLI_Menu): An instance of the CLI_Menu class
         """
-        invalid_input: str = str(len(cli_menu.menu_options) + 1)
+        invalid_input: str = str(len(cli_menu._menu_options) + 1)
         cli_menu._users_choice_from_input = invalid_input
         assert cli_menu._prompt_invalid_input_not_in_menu_options() == True

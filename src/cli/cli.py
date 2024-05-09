@@ -17,11 +17,11 @@ class CLI_Menu:
             method name as the value
         - _users_choice_from_input (str): The user's choice from the menu
             options
-        - menu_options (dict): Dictionary to store menu options
+        - _menu_options (dict): Dictionary to store menu options
             (key: option number, value: tuple of option description and
             method name)
         """
-        self.menu_options = {}  # Dictionary to store menu options
+        self._menu_options = {}  # Dictionary to store menu options
         self._setup_menu()
         self._users_choice_from_input: str = None
 
@@ -32,7 +32,7 @@ class CLI_Menu:
         for index, method_name in enumerate(self.MENU_METHODS, start=1):
             option_number: str = str(index)
             option_description: str = method_name[1:].replace("_", " ").title()
-            self.menu_options[option_number] = (
+            self._menu_options[option_number] = (
                 option_description, getattr(self, method_name))
 
     def _display_menu(self) -> None:
@@ -40,7 +40,7 @@ class CLI_Menu:
         print("+==================+")
         print("| RFID TAG MANAGER |")
         print("+==================+")
-        for key, value in self.menu_options.items():
+        for key, value in self._menu_options.items():
             print(f"{key}. {value[0]}")
 
         print("")  # Print an empty line for spacing (better readability)
@@ -80,10 +80,10 @@ class CLI_Menu:
                 (i.e. not a valid choice)
         """
         return_value: bool = False
-        if self._users_choice_from_input not in self.menu_options:
+        if self._users_choice_from_input not in self._menu_options:
             print(
                 f"Invalid choice. Please enter a number between 1 and " +
-                str(len(self.menu_options)) + " (inclusive).")
+                str(len(self._menu_options)) + " (inclusive).")
             self._display_menu()
             return_value: bool = True
 
@@ -112,8 +112,8 @@ class CLI_Menu:
         Args:
             choice (str): The user's choice from the menu options
         """
-        if self._users_choice_from_input in self.menu_options:
-            self.menu_options[self._users_choice_from_input][1]()
+        if self._users_choice_from_input in self._menu_options:
+            self._menu_options[self._users_choice_from_input][1]()
 
     def run(self):
         """ Run the CLI menu program
