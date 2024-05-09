@@ -12,6 +12,8 @@ class CLI_Menu:
         Initialize the CLI_Menu class with an empty dictionary to store
         menu options and call the _setup_menu method to create the menu options.
 
+        - firebase_client (FirebaseClient): Firebase Firestore database client
+        - rfid_reader (RfidReader): RFID reader to read and write RFID tags
         - _setup_menu (method): Create a dictionary of menu options with the
             option number as the key and a tuple of the option description and
             method name as the value
@@ -21,6 +23,8 @@ class CLI_Menu:
             (key: option number, value: tuple of option description and
             method name)
         """
+        self.firebase_client = FirebaseClient()
+        self.rfid_reader = RfidReader()
         self._menu_options = {}  # Dictionary to store menu options
         self._setup_menu()
         self._users_choice_from_input: str = None
