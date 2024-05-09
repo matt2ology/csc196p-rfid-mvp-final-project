@@ -1,5 +1,6 @@
 import sys  # For sys.exit() method
 from core.firebase_client import FirebaseClient
+from core.mfrc522_client import RfidReader
 
 
 class CLI_Menu:
