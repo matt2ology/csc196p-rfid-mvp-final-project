@@ -44,7 +44,9 @@ class FirebaseClient:
 
 
 if __name__ == "__main__":
-    # SEE TO: https://www.youtube.com/watch?v=qsFYq_1BQdk&ab_channel=BytesOfCode
+    """Driver code to test the FirebaseClient class
+    SEE TO: https://www.youtube.com/watch?v=qsFYq_1BQdk&ab_channel=BytesOfCode
+    """
     firebase_client = FirebaseClient()
     data = {"name": "John Doe", "email": "test@email.com", "status": "active"}
     firebase_client._collection.set(data)
