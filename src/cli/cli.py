@@ -68,23 +68,18 @@ class CLI_Menu:
     def _option3(self) -> None:
         print("You chose Option 3")
 
-    def _exit_program(self) -> None:
-        print("Exiting...")
-        sys.exit(0)
-
-    def _prompt_invalid_input_not_a_digit(self) -> bool:
-        """ Check if the user's input is a digit
+    def _is_input_a_non_digit(self) -> bool:
+        """Check if the user's input is a non digit
+        (e.g. a letter, or a symbol)
 
         Returns:
             bool: True if input is not a digit (i.e. not a number)
         """
-        return_value: bool = False
-        if not self._users_choice_from_input.isdigit():
-            print("Invalid input. Please enter a valid number.")
-            self._display_menu()
-            return_value: bool = True
+        return not self._users_choice_from_input.isdigit()
 
-        return return_value  # True if input is not a digit
+    def _prompt_invalid_input_not_a_digit(self) -> None:
+        print("Invalid input. Please enter a valid number.")
+        self._display_menu()
 
     def _prompt_invalid_input_not_in_menu_options(self) -> bool:
         """ Check if the user's input is not in the menu options dictionary
@@ -111,8 +106,8 @@ class CLI_Menu:
         is_loop_toggle_true: bool = True
         while is_loop_toggle_true:
             self._users_choice_from_input = input("Enter your choice: ")
-            if self._prompt_invalid_input_not_a_digit():
-                continue  # Skip the rest of the loop and prompt the user again
+            if self._is_input_not_a_digit():
+                self._prompt_invalid_input_not_a_digit()
             elif self._prompt_invalid_input_not_in_menu_options():
                 continue  # Skip the rest of the loop and prompt the user again
             else:
