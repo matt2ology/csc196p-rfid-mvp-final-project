@@ -159,5 +159,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 ect/secret_key.txt
-ect/rfid-final-project-firebase-adminsdk-4lfv7-4a26f16eaf.json
-secrets/cloud-solution-rfid-18249-firebase-adminsdk-o6tnb-5776da0779.json
+.dev_venv/
+.vscode/
+config/app_config.py
+.venv_python3_11_2/
+src/config/firebase_private_key.json
+.venv_dev/

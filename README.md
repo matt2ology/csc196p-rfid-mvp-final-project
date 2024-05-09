@@ -37,17 +37,7 @@ if it has been returned to lost-and-found.
   like the Epson TM-T20 or the [Maikrt Micro Thermal Printer](https://a.co/d/7SnoBkb),
   but has only been tested with the Adafruit printer.
   - `pip install adafruit-circuitpython-thermal-printer`
-  - [Mini Thermal Receipt Printers  CircuitPython and Python](https://learn.adafruit.com/mini-thermal-receipt-printer/circuitpython)
-
-## Resources
-
-- [Mini Thermal Receipt Printers > Making Connections > Raspberry Pi](https://learn.adafruit.com/mini-thermal-receipt-printer/making-connections#to-raspberry-pi-3133486)
-  - [Connect and Configure Printer - USB printers: `ls -l /dev/usb/lp0`](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer#:~:text=USB%20printers%20may%20present%20themselves%20to%20the%20system%20differently%20depending%20which%20USB%2Dto%2Dserial%20chip%20they%20use%20internally.)
-- [Interfacing Thermal Printer with Raspberry Pi to Print Text, Images, Barcodes and QR Codes](https://circuitdigest.com/microcontroller-projects/thermal-printer-interfacing-with-raspberry-pi-zero-to-print-text-images-and-bar-codes)
-- [YouTube: Bytes Of Code - Python - How To Create Firestore Database](https://www.youtube.com/watch?v=qsFYq_1BQdk&ab_channel=BytesOfCode)
-- [Automate the boring stuff - CH 18 - SENDING EMAIL AND TEXT MESSAGES](https://automatetheboringstuff.com/2e/chapter18/)
-- [Maikrt Compact Maikrt 58MM Thermal Receipt Printer Module|USB/TTL Serial Port ESCPOS Commands](https://www.ubuy.co.in/product/7LNB6RM8-maikrt-embedded-58mm-thermal-receipt-printer-mini-printing-module-support-usb-and-ttl-serial-port-es)
-- [Add the Firebase Admin SDK to your server](https://firebase.google.com/docs/admin/setup)
+  - [Mini Thermal Receipt Printers CircuitPython and Python](https://learn.adafruit.com/mini-thermal-receipt-printer/circuitpython)
 
 ## Raspberry Pi Setup & Configuration for Thermal Printer (Maikrt)
 
@@ -84,3 +74,41 @@ lp -o fit-to-page /usr/share/raspberrypi-artwork/raspberry-pi-logo.png
 stty -F /dev/serial0 9600
 echo -e "This is a test.\\n\\n\\n" > /dev/serial0
 ```
+
+## Resources
+
+A list of resources that I used to help me with this project and to give credit
+
+- [Add the Firebase Admin SDK to your server](https://firebase.google.com/docs/admin/setup)
+- [Automate the boring stuff - CH 18 - SENDING EMAIL AND TEXT MESSAGES](https://automatetheboringstuff.com/2e/chapter18/)
+- [Connect and Configure Printer - USB printers: `ls -l /dev/usb/lp0`](https://learn.adafruit.com/networked-thermal-printer-using-cups-and-raspberry-pi/connect-and-configure-printer#:~:text=USB%20printers%20may%20present%20themselves%20to%20the%20system%20differently%20depending%20which%20USB%2Dto%2Dserial%20chip%20they%20use%20internally.)
+- [Django + Firebase](https://forum.djangoproject.com/t/django-firebase/16628/2)
+- [Firebase - Documentation Admin SDK - Python](https://firebase.google.com/docs/admin/setup#python_1)
+- [GitHub: Adafruit_Blinka](https://github.com/adafruit/Adafruit_Blinka)
+- [Interfacing Thermal Printer with Raspberry Pi to Print Text, Images, Barcodes and QR Codes](https://circuitdigest.com/microcontroller-projects/thermal-printer-interfacing-with-raspberry-pi-zero-to-print-text-images-and-bar-codes)
+- [Maikrt Compact Maikrt 58MM Thermal Receipt Printer Module|USB/TTL Serial Port ESCPOS Commands](https://www.ubuy.co.in/product/7LNB6RM8-maikrt-embedded-58mm-thermal-receipt-printer-mini-printing-module-support-usb-and-ttl-serial-port-es)
+- [Mini Thermal Receipt Printers > Making Connections > Raspberry Pi](https://learn.adafruit.com/mini-thermal-receipt-printer/making-connections#to-raspberry-pi-3133486)
+- [YouTube: Bytes Of Code - Python - Handle Data in Firestore Database](https://www.youtube.com/watch?v=-jWD-vIyirw&ab_channel=BytesOfCode)
+- [YouTube: Bytes Of Code - Python - How To Create Firestore Database](https://www.youtube.com/watch?v=qsFYq_1BQdk&ab_channel=BytesOfCode)
+- [YouTube: Fireship - 100 Firebase Tips, Tricks, and Screw-ups](https://youtu.be/iWEgpdVSZyg?si=XHr4D4m5K5Y9vM57&t=1090)
+- [YouTube: Tech With Tim - Learn Django in 20 Minutes!!](https://www.youtube.com/watch?v=nGIg40xs9e4&ab_channel=TechWithTim)
+- [YouTube: User Authentication for Django with Auth0 - Django Tutorial](https://www.youtube.com/watch?v=heNu2sw9Yf4&ab_channel=SsaliJonathan)
+
+## Code Ideas and Inspirations
+
+A list of code ideas and inspirations that I used to help me with this project
+
+- [django-todo/todos/firebase_client.py](https://github.com/saadmk11/django-todo/blob/master/todos/firebase_client.py)
+- [Python-Thermal-Printer/printertest.py](https://github.com/adafruit/Python-Thermal-Printer/blob/master/printertest.py)
+
+## Table of Contents
+
+- [CSC 196P - Final Project MVP - Cloud Solution: RFID Technology \& Raspberry Pi as a Platform](#csc-196p---final-project-mvp---cloud-solution-rfid-technology--raspberry-pi-as-a-platform)
+  - [Project Proposal](#project-proposal)
+  - [Python Dependencies](#python-dependencies)
+  - [Raspberry Pi Setup \& Configuration for Thermal Printer (Maikrt)](#raspberry-pi-setup--configuration-for-thermal-printer-maikrt)
+    - [Test via USB](#test-via-usb)
+    - [Test viaTransistor-Transistor Logic (TTL)](#test-viatransistor-transistor-logic-ttl)
+  - [Resources](#resources)
+  - [Code Ideas and Inspirations](#code-ideas-and-inspirations)
+  - [Table of Contents](#table-of-contents)
