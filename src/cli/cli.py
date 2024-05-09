@@ -5,7 +5,6 @@ import sys  # For sys.exit() method
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core.mfrc522_client import RfidReader
 from core.firebase_client import FirebaseClient
-from core.mfrc522_client import RfidReader
 
 
 class CLI_Menu:
