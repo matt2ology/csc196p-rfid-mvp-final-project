@@ -10,8 +10,8 @@ def launch_gui():
 def launch_cli():
     """Import and launch your CLI module
     """
-    import src.cli  # Import cli module from src package
-    src.cli.CLI_Menu().run()  # Create CLI_Menu instance and call run method
+    from cli.cli import CLI_Menu
+    CLI_Menu().run()
 
 
 def main():

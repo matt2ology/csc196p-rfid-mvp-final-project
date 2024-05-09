@@ -1,6 +1,7 @@
 from mfrc522 import SimpleMFRC522  # RFID library for the MFRC522 module
 import RPi.GPIO as GPIO  # GPIO library for the Raspberry Pi
 
+from src.configuration.config import Settings
 
 class RfidReader:
     def __init__(self):

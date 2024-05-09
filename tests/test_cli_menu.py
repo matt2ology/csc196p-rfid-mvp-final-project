@@ -1,6 +1,6 @@
 import pytest
 
-from src.cli import CLI_Menu
+from src.cli.cli import CLI_Menu
 
 
 class Test_CLI_Menu:
