@@ -31,7 +31,7 @@ class Test_CLI_Menu:
         cli_menu._users_choice_from_input = invalid_input
         assert cli_menu._is_input_a_non_digit() == True
 
-    def test_prompt_invalid_input_not_in_menu_options(self, cli_menu: CLI_Menu):
+    def test_is_input_not_in_menu_options(self, cli_menu: CLI_Menu):
         """ Test if the user's input is not in the menu options dictionary
 
         Args:
@@ -39,4 +39,4 @@ class Test_CLI_Menu:
         """
         invalid_input: str = str(len(cli_menu._menu_options) + 1)
         cli_menu._users_choice_from_input = invalid_input
-        assert cli_menu._prompt_invalid_input_not_in_menu_options() == True
+        assert cli_menu._is_input_not_in_menu_options() == True
