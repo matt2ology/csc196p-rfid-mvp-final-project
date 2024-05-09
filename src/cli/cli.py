@@ -1,4 +1,9 @@
+import os
 import sys  # For sys.exit() method
+
+# Add parent dir to path. Not included by default due to script's subdirectory
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from core.mfrc522_client import RfidReader
 from core.firebase_client import FirebaseClient
 from core.mfrc522_client import RfidReader
 
