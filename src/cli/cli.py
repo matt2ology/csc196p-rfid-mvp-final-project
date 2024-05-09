@@ -1,4 +1,5 @@
 import sys  # For sys.exit() method
+from core.firebase_client import FirebaseClient
 
 
 class CLI_Menu:
