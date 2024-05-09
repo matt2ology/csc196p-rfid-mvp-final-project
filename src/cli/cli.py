@@ -10,7 +10,8 @@ from core.personnel import MemberData
 
 class CLI_Menu:
     # List of method names to include in the menu options dictionary
-    MENU_METHODS = ['_option1', '_option2', '_option3', '_exit_program']
+    MENU_METHODS = [
+        '_enroll_member', '_option2', '_option3', '_exit_program']
 
     def __init__(self):
         """
@@ -55,8 +56,11 @@ class CLI_Menu:
 
         print("")  # Print an empty line for spacing (better readability)
 
-    def _option1(self) -> None:
-        print("You chose Option 1")
+    def _enroll_member(self) -> None:
+        """ Enroll personnel into the database using the RFID tag's ID and
+        other personnel data
+        """
+        pass
 
     def _option2(self) -> None:
         print("You chose Option 2")
