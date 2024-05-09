@@ -4,7 +4,7 @@ import firebase_admin  # Firebase Admin SDK for Python
 import os  # OS module for interacting with the operating system
 import sys  # System-specific parameters and functions module
 
-# Add the parent directory to the system path.
+# Add parent dir to path. Not included by default due to script's subdirectory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Now we can import the configuration module because of the appended path
 from configuration.config import Settings
