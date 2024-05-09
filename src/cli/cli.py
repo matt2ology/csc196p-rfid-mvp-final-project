@@ -5,6 +5,7 @@ import sys  # For sys.exit() method
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core.mfrc522_client import RfidReader
 from core.firebase_client import FirebaseClient
+from core.personnel import MemberData
 
 
 class CLI_Menu:
@@ -29,6 +30,7 @@ class CLI_Menu:
         """
         self.firebase_client = FirebaseClient()
         self.rfid_reader = RfidReader()
+        self.personnel_data = MemberData()
         self._menu_options = {}  # Dictionary to store menu options
         self._setup_menu()
         self._users_choice_from_input: str = None
