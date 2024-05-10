@@ -40,3 +40,14 @@ class Test_CLI_Menu:
         invalid_input: str = str(len(cli_menu._menu_options) + 1)
         cli_menu._users_choice_from_input = invalid_input
         assert cli_menu._is_input_not_in_menu_options() == True
+
+    def test_input_is_in_menu_options(self, cli_menu: CLI_Menu):
+        """Test if the user's input is in the menu options dictionary
+        It is 
+
+        Args:
+            cli_menu (CLI_Menu): An instance of the CLI_Menu class
+        """
+        for option in range(1, len(cli_menu._menu_options) + 1):
+            cli_menu._users_choice_from_input = str(option)
+            assert cli_menu._is_input_not_in_menu_options() == False
