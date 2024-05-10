@@ -57,8 +57,8 @@ class CLI_Menu:
         print("")  # Print an empty line for spacing (better readability)
 
     def _enroll_member(self) -> None:
-        """ Enroll personnel into the database using the RFID tag's ID and
-        other personnel data
+        """Enroll personnel into the database using the RFID tag's ID and
+        other personnel data - create a new record in the database
         """
         pass
 
