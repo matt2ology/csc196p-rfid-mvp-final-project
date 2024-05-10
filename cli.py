@@ -2,16 +2,16 @@ import os
 import sys  # For sys.exit() method
 
 # Add parent dir to path. Not included by default due to script's subdirectory
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from core.mfrc522_client import RfidReader
-from core.firebase_client import FirebaseClient
-from core.personnel import MemberData
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from mfrc522_client import RfidReader
+from firebase_client import FirebaseClient
+from user_data_processor import UserDataProcessor
 
 
 class CLI_Menu:
     # List of method names to include in the menu options dictionary
     MENU_METHODS = [
-        '_enroll_member', '_option2', '_option3', '_exit_program']
+        '_enroll_user', '_option2', '_option3', '_exit_program']
 
     def __init__(self):
         """
@@ -31,7 +31,7 @@ class CLI_Menu:
         """
         self.firebase_client = FirebaseClient()
         self.rfid_reader = RfidReader()
-        self.personnel_data = MemberData()
+        self.user_data = UserDataProcessor()
         self._menu_options = {}  # Dictionary to store menu options
         self._setup_menu()
         self._users_choice_from_input: str = None
@@ -56,16 +56,28 @@ class CLI_Menu:
 
         print("")  # Print an empty line for spacing (better readability)
 
-    def _enroll_member(self) -> None:
-        """Enroll personnel into the database using the RFID tag's ID and
-        other personnel data - create a new record in the database
+    def _enroll_user(self) -> None:
+        """Enroll user into the database using the RFID tag's ID and
+        other user data - create a new record in the database
         """
-        pass
+        self.user_data.enroll_user()
+        self.user_data.process_user_data()
+        self.firebase_client._collection.set(self.user_data.user_data)
+        print("User data is set and saved to database.")
 
     def _option2(self) -> None:
+        """Read
+        """
         print("You chose Option 2")
 
     def _option3(self) -> None:
+        """Update
+        """
+        print("You chose Option 3")
+
+    def _option4(self) -> None:
+        """Delete
+        """
         print("You chose Option 3")
 
     def _exit_program(self) -> None:

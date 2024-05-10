@@ -10,8 +10,8 @@ def launch_gui():
 def launch_cli():
     """Import and launch your CLI module
     """
-    from cli.cli import CLI_Menu
-    CLI_Menu().run()
+    from cli import CLI_Menu
+    CLI_Menu().run()  # Call the run method on the instance
 
 
 def main():

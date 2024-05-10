@@ -6,7 +6,9 @@ class Settings:
         self._BASE_DIR_SRC = os.path.dirname(
             os.path.dirname(os.path.abspath(__file__)))
         self.FIREBASE_ADMIN_SDK_KEY_FILE = os.path.normpath(
-            "src/configuration/firebase_private_key.json"
+            os.path.join(
+                "configuration/firebase_private_key.json"
+            )
         )  # Path to Firebase Admin SDK private key file (JSON)
 
     def get_base_dir_src(self):
