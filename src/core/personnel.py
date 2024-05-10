@@ -15,7 +15,8 @@ class MemberData:
         return self.data_entry_form
     
     def _enroll_personnel(self) -> None:
-        """ Enroll personnel into the database using the RFID tag's ID and text """
+        """Enroll personnel into the database using the RFID tag's ID and text
+        """
         for key in self.keys:
             value = input(f"Enter {key}: ")
             while not value:  # Check if value is empty
