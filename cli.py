@@ -9,7 +9,7 @@ class CLI_Menu:
     MENU_METHODS = [
         '_enroll_user',
         '_check_rfid_tag',
-        '_option3',
+        '_update_name',
         '_exit_program'
     ]
 
@@ -86,10 +86,13 @@ class CLI_Menu:
         )
         print("RFID tag scanned")
 
-    def _option3(self) -> None:
+    def _update_name(self) -> None:
         """Update
         """
-        print("You chose Option 3")
+        print("Scan RFID tag")
+        tag_id = self.rfid.read_rfid_tag_id()
+        new_name = input("Enter new name: ")
+        self.firebase_client.update_name(tag_id, new_name)
 
     def _option4(self) -> None:
         """Delete

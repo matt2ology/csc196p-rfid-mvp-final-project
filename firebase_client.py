@@ -59,6 +59,24 @@ class FirebaseClient:
             for key, value in data_dict.items():
                 print(f"\t{key}: {value}")
 
+    def update_name(self, tag_id: str, new_name: str) -> None:
+        """Allows user to update value from the required keys-values
+        on file and have it updated in database
+        SEE TO:
+            - [Python - Handle Data in Firestore Database](https://www.youtube.com/watch?v=-jWD-vIyirw&ab_channel=BytesOfCode)
+        """
+        # Query Firestore for documents with the given tagID
+        docs_ref = self._database.collection(
+            u'your_collection').where(u'tagID', u'==', tag_id).limit(1)
+        docs = docs_ref.stream()
+
+        # Update the 'Name' field of the first matching document
+        for doc in docs:
+            doc_ref = self._database.collection(
+                u'authorized_personnel').document(doc.id)
+            doc_ref.update({u'Name': new_name})  # the 'u' allows for unicode
+            print(f"Document with tagID '{tag_id}' updated successfully.")
+
 
 if __name__ == "__main__":
     """Driver code to test the FirebaseClient class
