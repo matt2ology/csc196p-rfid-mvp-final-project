@@ -1,13 +1,11 @@
-import firebase_admin  # Firebase Admin SDK for Python
 from firebase_admin import credentials  # Firebase Admin SDK credentials
 from firebase_admin import firestore  # Firebase's Firestore database client
-import os  # OS module for interacting with the operating system
-import sys  # System-specific parameters and functions module
+# UserWarning: Detected filter using positional arguments. Prefer using the 'filter' keyword argument instead.
+from google.cloud.firestore_v1.base_query import FieldFilter
+import firebase_admin  # Firebase Admin SDK for Python
 
-# Add parent dir to path. Not included by default due to script's subdirectory
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-# Now we can import the configuration module because of the appended path
-from config import Settings
+
+from config import Settings  # Used for getting the Firebase Admin SDK key file
 
 
 class FirebaseClient:
@@ -38,9 +36,28 @@ class FirebaseClient:
         except ValueError:  # If Firebase app is not yet initialized
             firebase_admin.initialize_app(
                 credentials.Certificate(
-                Settings().get_firebase_admin_sdk_key_file()
+                    Settings().get_firebase_admin_sdk_key_file()
+                )
             )
+
+    def find_firestore_by_tag_id_and_print_data(self, id: str) -> None:
+        """
+        Find a document in Firestore by its tag ID and
+        print the document data
+
+        Args:
+            document_id (str): The document ID to find in Firestore
+        """
+        query = self._database.collection("authorized_personnel").where(
+            filter=FieldFilter("tagID", "in", [id])
         )
+        documents = query.stream()
+        for doc in documents:
+            print("Document ID:", doc.id)
+            print("Data:")
+            data_dict = doc.to_dict()
+            for key, value in data_dict.items():
+                print(f"\t{key}: {value}")
 
 
 if __name__ == "__main__":

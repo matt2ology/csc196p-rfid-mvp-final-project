@@ -11,7 +11,8 @@ def launch_cli():
     """Import and launch your CLI module
     """
     from cli import CLI_Menu
-    CLI_Menu().run()  # Call the run method on the instance
+    while True:
+        CLI_Menu().run()  # Call the run method on the instance
 
 
 def main():

@@ -1,17 +1,14 @@
-import os
 import sys  # For sys.exit() method
-
-# Add parent dir to path. Not included by default due to script's subdirectory
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from mfrc522_client import RfidReader
-from firebase_client import FirebaseClient
 from user_data_processor import UserDataProcessor
+from firebase_client import FirebaseClient
 
 
 class CLI_Menu:
     # List of method names to include in the menu options dictionary
     MENU_METHODS = [
-        '_enroll_user', '_option2', '_option3', '_exit_program']
+        '_enroll_user', '_check_rfid_tag', '_option3', '_exit_program'
+    ]
 
     def __init__(self):
         """
@@ -19,7 +16,7 @@ class CLI_Menu:
         menu options and call the _setup_menu method to create the menu options.
 
         - firebase_client (FirebaseClient): Firebase Firestore database client
-        - rfid_reader (RfidReader): RFID reader to read and write RFID tags
+        - rfid (RfidReader): RFID reader to read and write RFID tags
         - _setup_menu (method): Create a dictionary of menu options with the
             option number as the key and a tuple of the option description and
             method name as the value
@@ -30,7 +27,7 @@ class CLI_Menu:
             method name)
         """
         self.firebase_client = FirebaseClient()
-        self.rfid_reader = RfidReader()
+        self.rfid = RfidReader()
         self.user_data = UserDataProcessor()
         self._menu_options = {}  # Dictionary to store menu options
         self._setup_menu()
@@ -43,8 +40,22 @@ class CLI_Menu:
         for index, method_name in enumerate(self.MENU_METHODS, start=1):
             option_number: str = str(index)
             option_description: str = method_name[1:].replace("_", " ").title()
-            self._menu_options[option_number] = (
-                option_description, getattr(self, method_name))
+            self._add_option_to_menu(
+                option_number, option_description, method_name
+            )
+
+    def _add_option_to_menu(
+            self, option_number: str, option_description: str, method_name: str
+    ) -> None:
+        """Add an option to the menu options dictionary.
+
+            Args:
+                option_number (str): The option number
+                option_description (str): The option description
+                method_name (str): The name of the method to be called
+            """
+        self._menu_options[option_number] = (
+            option_description, getattr(self, method_name))
 
     def _display_menu(self) -> None:
         print("")
@@ -62,13 +73,16 @@ class CLI_Menu:
         """
         self.user_data.enroll_user()
         self.user_data.process_user_data()
-        self.firebase_client._collection.set(self.user_data.user_data)
-        print("User data is set and saved to database.")
 
-    def _option2(self) -> None:
+    def _check_rfid_tag(self) -> None:
         """Read
         """
-        print("You chose Option 2")
+        print("Scan RFID tag")
+        # temp: str = self.rfid.read_rfid_tag_id()
+        self.firebase_client.find_firestore_by_tag_id_and_print_data(
+            self.rfid.read_rfid_tag_id()
+        )
+        print("RFID tag scanned")
 
     def _option3(self) -> None:
         """Update
@@ -125,7 +139,7 @@ class CLI_Menu:
         is_loop_toggle_true: bool = True
         while is_loop_toggle_true:
             self._users_choice_from_input = input("Enter your choice: ")
-            if self._is_input_not_a_digit():
+            if self._is_input_a_non_digit():
                 self._prompt_invalid_input_not_a_digit()
             elif self._is_input_not_in_menu_options():
                 self._prompt_invalid_input_not_in_menu_options()
@@ -141,15 +155,15 @@ class CLI_Menu:
             choice (str): The user's choice from the menu options
         """
         if self._users_choice_from_input in self._menu_options:
+            # Call the method from the menu options dictionary
             self._menu_options[self._users_choice_from_input][1]()
 
     def run(self):
         """ Run the CLI menu program
         """
-        while True:
-            self._display_menu()
-            self._read_users_menu_choice()
-            self._process_choice()
+        self._display_menu()
+        self._read_users_menu_choice()
+        self._process_choice()
 
 
 if __name__ == "__main__":
