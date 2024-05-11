@@ -77,6 +77,23 @@ class FirebaseClient:
             doc_ref.update({u'Name': new_name})  # the 'u' allows for unicode
             print(f"Document with tagID '{tag_id}' updated successfully.")
 
+    def delete_user_based_on_tag_id(self, tag_id: str) -> None:
+        """Allows user to delete a document from the database
+        SEE TO:
+            - [Python - Handle Data in Firestore Database](https://www.youtube.com/watch?v=-jWD-vIyirw&ab_channel=BytesOfCode)
+        """
+        # Query Firestore for documents with the given tagID
+        docs_ref = self._database.collection(
+            u'authorized_personnel').where(u'tagID', u'==', tag_id).limit(1)
+        docs = docs_ref.stream()
+
+        # Delete the first matching document
+        for doc in docs:
+            doc_ref = self._database.collection(
+                u'authorized_personnel').document(doc.id)
+            doc_ref.delete()
+            print(f"Document with tagID '{tag_id}' deleted successfully.")
+
 
 if __name__ == "__main__":
     """Driver code to test the FirebaseClient class

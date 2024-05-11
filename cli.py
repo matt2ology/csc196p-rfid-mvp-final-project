@@ -10,6 +10,7 @@ class CLI_Menu:
         '_enroll_user',
         '_check_rfid_tag',
         '_update_name',
+        '_delete_user',
         '_exit_program'
     ]
 
@@ -94,10 +95,12 @@ class CLI_Menu:
         new_name = input("Enter new name: ")
         self.firebase_client.update_name(tag_id, new_name)
 
-    def _option4(self) -> None:
+    def _delete_user(self) -> None:
         """Delete
         """
-        print("You chose Option 3")
+        print("Scan RFID tag")
+        tag_id = self.rfid.read_rfid_tag_id()
+        self.firebase_client.delete_user_based_on_tag_id(tag_id)
 
     def _exit_program(self) -> None:
         print("Exiting...")
