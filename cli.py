@@ -7,7 +7,10 @@ from firebase_client import FirebaseClient
 class CLI_Menu:
     # List of method names to include in the menu options dictionary
     MENU_METHODS = [
-        '_enroll_user', '_check_rfid_tag', '_option3', '_exit_program'
+        '_enroll_user',
+        '_check_rfid_tag',
+        '_option3',
+        '_exit_program'
     ]
 
     def __init__(self):
