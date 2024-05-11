@@ -78,7 +78,6 @@ class CLI_Menu:
         """Read
         """
         print("Scan RFID tag")
-        # temp: str = self.rfid.read_rfid_tag_id()
         self.firebase_client.find_firestore_by_tag_id_and_print_data(
             self.rfid.read_rfid_tag_id()
         )
