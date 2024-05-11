@@ -78,6 +78,7 @@ class RfidReader:
 
             previous_tag_id = current_tag_id
 
+        print(f"Writing: {data} to RFID tag")
         self.reader.write(data)
 
 
