@@ -20,11 +20,13 @@ def main():
     determine the interface to launch
     """
     print("Launching...")
-    if len(sys.argv) > 1 and sys.argv[1] == "--cli":
-        launch_cli()
-    else:
-        launch_gui()
 
+    # TODO: Add GUI
+    # if len(sys.argv) > 1 and sys.argv[1] == "--cli":
+    #     launch_cli()
+    # else:
+    #     launch_gui()
+    launch_cli()
 
 if __name__ == "__main__":
     main()
